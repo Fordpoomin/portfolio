@@ -16,53 +16,54 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
     <div className="relative overflow-hidden" style={themeStyle}>
       <SiteHeader />
 
-      <main>
-        <section id="home" className="relative overflow-hidden py-20 lg:py-28">
+      {/* Add top padding to prevent content being hidden behind fixed navbar */}
+      <main className="pt-24 md:pt-28">
+        <section id="home" className="relative overflow-hidden py-20 lg:py-28 transition-all duration-500">
           <div className="absolute inset-0 bg-hero-grid bg-[length:48px_48px] opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-          <div className="section-shell relative grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="section-shell relative grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <AnimateInView>
               <div>
-              <span className="mb-5 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-2 font-[var(--font-heading)] text-xs font-semibold uppercase tracking-[0.24em] text-amber-100">
-                Available for Front-End / Full Stack Roles
-              </span>
-              <h1 className="max-w-4xl font-[var(--font-heading)] text-5xl font-extrabold leading-none text-white sm:text-6xl lg:text-7xl">
-                {profile.headline}
-              </h1>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-amber-50">{profile.subheadline}</p>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">{profile.summary}</p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#projects"
-                  className="rounded-full bg-amber-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-amber-300"
-                >
-                  View Projects
-                </a>
-                <a
-                  href="#experience"
-                  className="rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:border-white/30 hover:bg-white/5"
-                >
-                  Experience
-                </a>
-              </div>
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {[
-                  { label: "Years Experience", value: profile.yearsExperience },
-                  { label: "Project Stories", value: profile.projectCount },
-                  { label: "Current Focus", value: profile.currentRole }
-                ].map((item) => (
-                  <HoverCard key={item.label}>
-                    <div className="glass rounded-3xl p-5">
-                      <div className="font-[var(--font-heading)] text-2xl font-bold text-white">{item.value}</div>
-                      <div className="mt-2 text-sm text-slate-400">{item.label}</div>
-                    </div>
-                  </HoverCard>
-                ))}
-              </div>
+                <span className="mb-5 inline-flex rounded-full border border-white/15 bg-white/5 px-4 py-2 font-[var(--font-heading)] text-xs font-semibold uppercase tracking-[0.24em] text-amber-100">
+                  Available for Front-End / Full Stack Roles
+                </span>
+                <h1 className="max-w-4xl font-[var(--font-heading)] text-5xl font-extrabold leading-none text-white sm:text-6xl lg:text-7xl">
+                  {profile.headline}
+                </h1>
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-amber-50">{profile.subheadline}</p>
+                <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">{profile.summary}</p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <a
+                    href="#projects"
+                    className="rounded-full bg-amber-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-amber-300"
+                  >
+                    View Projects
+                  </a>
+                  <a
+                    href="#experience"
+                    className="rounded-full border border-white/15 px-6 py-3 font-medium text-white transition hover:border-white/30 hover:bg-white/5"
+                  >
+                    Experience
+                  </a>
+                </div>
+                <div className="mt-10 grid gap-6 sm:grid-cols-3">
+                  {[
+                    { label: "Years Experience", value: profile.yearsExperience },
+                    { label: "Project Stories", value: profile.projectCount },
+                    { label: "Current Focus", value: profile.currentRole }
+                  ].map((item) => (
+                    <HoverCard key={item.label}>
+                      <div className="glass rounded-3xl p-5">
+                        <div className="font-[var(--font-heading)] text-2xl font-bold text-white">{item.value}</div>
+                        <div className="mt-2 text-sm text-slate-400">{item.label}</div>
+                      </div>
+                    </HoverCard>
+                  ))}
+                </div>
               </div>
             </AnimateInView>
 
             <AnimateInView delay={0.1}>
-              <div className="glass rounded-[2rem] p-6 lg:p-8">
+              <div className="glass rounded-[2rem] p-6 lg:p-8 shadow-xl hover:shadow-2xl transition-all duration-500">
                 <div className="relative mb-5 h-56 overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/50 sm:h-72">
                   <Image src={profile.avatarPath} alt={profile.fullName} fill className="object-cover transition duration-700 hover:scale-[1.04]" priority />
                 </div>

@@ -1,6 +1,6 @@
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/55 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl shadow-lg transition-all duration-500">
       <div className="section-shell flex min-h-20 items-center justify-between gap-4">
         <a href="#home" className="flex items-center gap-3 text-white">
           <span className="size-3 rounded-full bg-gradient-to-br from-glow to-flame shadow-[0_0_28px_rgba(255,184,77,0.8)]" />
