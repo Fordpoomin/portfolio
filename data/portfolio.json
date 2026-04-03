@@ -1,0 +1,224 @@
+{
+    "site": {
+        "title": "Ford Portfolio",
+        "tagline": "Full Stack Developer Portfolio",
+        "email": "poominzakubgrn@gmail.com",
+        "phone": "095-3074741",
+        "location": "ลาดกระบัง / Bangkok, Thailand",
+        "availability": "Work from home / Hybrid / Onsite",
+        "resume_focus": "Front End Developer, Full Stack Developer, Web Application Developer"
+    },
+    "hero": {
+        "name": "Poomin Wan-arome (Ford)",
+        "headline": "Full Stack Developer with a strong Front-End core",
+        "subheadline": "ผมออกแบบและพัฒนาเว็บแอปที่สวย ใช้งานง่าย เชื่อมต่อ API ได้จริง และดูแลได้ต่อในระยะยาว เหมาะสำหรับบริษัทที่ต้องการคนลงมือทำได้ครบตั้งแต่ UI ไปจนถึงระบบหลังบ้าน",
+        "description": "มีประสบการณ์พัฒนาเว็บไซต์เชิงธุรกิจด้วย HTML, CSS, JavaScript, jQuery, React, Next.js, PHP และฐานข้อมูล พร้อมทำงานแบบ Freelance, Part-time หรือประจำได้ตามความเหมาะสม",
+        "avatar": "",
+        "years_experience": "4+",
+        "projects_count": "12+",
+        "current_role": "Full Stack Developer (Main Front)",
+        "highlight_metrics": [
+            "Responsive website ที่พร้อมใช้งานทุกหน้าจอ",
+            "เชื่อมต่อ API, แบบฟอร์ม, และฐานข้อมูลได้จริง",
+            "ให้ความสำคัญกับ performance, SEO และความเรียบร้อยของ code"
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "summary": "นักพัฒนาเว็บชาวไทยที่ถนัดงาน Front-End และสามารถต่อยอดงาน Full Stack ได้ดี มีประสบการณ์แปลงดีไซน์เป็นหน้าเว็บจริง, เชื่อม API, ทำฟอร์ม, ดูแลโครงสร้างโปรเจกต์ และร่วมรีวิวโค้ดในทีม",
+        "personal_details": [
+            {
+                "label": "สัญชาติ",
+                "value": "ไทย"
+            },
+            {
+                "label": "ภาษา",
+                "value": "ไทย, อังกฤษ"
+            },
+            {
+                "label": "วันเกิด",
+                "value": "17 พฤษภาคม 2539"
+            },
+            {
+                "label": "พาหนะ",
+                "value": "รถยนต์, รถจักรยานยนต์"
+            },
+            {
+                "label": "พร้อมเริ่มงาน",
+                "value": "ภายใน 1 เดือน"
+            },
+            {
+                "label": "เงินเดือนที่คาดหวัง",
+                "value": "35,000 - 45,000 บาท"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "group": "Frontend",
+            "items": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "jQuery",
+                "Responsive Design",
+                "React",
+                "Next.js",
+                "Bootstrap"
+            ]
+        },
+        {
+            "group": "Backend",
+            "items": [
+                "PHP",
+                "Laravel",
+                "REST API Integration",
+                "Form Processing",
+                "JSON"
+            ]
+        },
+        {
+            "group": "Database & Tools",
+            "items": [
+                "MySQL",
+                "SQLite",
+                "PostgreSQL",
+                "Git",
+                "SEO",
+                "Code Review"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "period": "มีนาคม 2566 - ปัจจุบัน",
+            "company": "MAGIC TECH SOLUTION COMPANY LIMITED",
+            "position": "Full Stack Developer (Main Front)",
+            "location": "Zeer Rangsit, Pathum Thani",
+            "salary": "25,000 บาท",
+            "highlights": [
+                "พัฒนาระบบจาก Design สู่ HTML อย่างรวดเร็วและตรง Requirement",
+                "เชื่อมต่อ API, สร้างฟอร์ม, และส่งข้อมูลให้ Back-End",
+                "Review code ก่อน commit และทำงานร่วมกับทีมผ่าน Git",
+                "ใช้ Modern Front-End เช่น React และ Next.js",
+                "เชื่อมฐานข้อมูลได้ทั้ง MySQL, SQLite, PostgreSQL ตามโครงสร้างโปรเจกต์",
+                "พัฒนาเว็บไซต์ Responsive, SEO-friendly และเน้น performance"
+            ]
+        },
+        {
+            "period": "มกราคม 2564 - มกราคม 2566",
+            "company": "บริษัท ไทยพานิช มาร์เก็ตติ้ง จำกัด (ไทยมาร์ทพิษณุโลก)",
+            "position": "Front End Programmer",
+            "location": "พิษณุโลก",
+            "salary": "18,000 บาท",
+            "highlights": [
+                "รับผิดชอบงาน Front-End Development ด้วย HTML, JavaScript และ CSS",
+                "เชื่อมต่อ API และแสดงผลข้อมูลสำหรับการใช้งานจริง"
+            ]
+        },
+        {
+            "period": "พฤศจิกายน 2562 - มีนาคม 2563",
+            "company": "CITCOMS, มหาวิทยาลัยพะเยา",
+            "position": "โปรแกรมเมอร์ และผู้จัดอบรม",
+            "location": "พะเยา",
+            "salary": "",
+            "highlights": [
+                "ดูแล ช่วยเหลือ และพัฒนาเว็บไซต์ให้หน่วยงาน",
+                "เป็นวิทยากรอบรมการใช้โปรแกรม KODU สำหรับนักเรียน",
+                "สนับสนุนการใช้งาน Microsoft Team ให้คณาจารย์ในช่วง Covid-19"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "Enterprise Dashboard UI",
+            "category": "Frontend Development",
+            "stack": "HTML, CSS, JavaScript, jQuery, Bootstrap",
+            "summary": "แปลงดีไซน์เป็นหน้า Dashboard พร้อมฟิลเตอร์, ตารางข้อมูล, และ interaction ที่ลื่นไหลสำหรับระบบธุรกิจ",
+            "impact": "ช่วยให้ผู้ใช้งานเห็นข้อมูลสำคัญและทำงานประจำวันได้สะดวกขึ้น",
+            "link": "#"
+        },
+        {
+            "name": "API-Driven Web Application",
+            "category": "Full Stack Development",
+            "stack": "PHP, MySQL, JSON, JavaScript",
+            "summary": "สร้างเว็บแอปที่รับข้อมูลจาก API, จัดการฟอร์ม, บันทึกข้อมูล, และแสดงผลแบบ responsive",
+            "impact": "ลดงานซ้ำซ้อนและทำให้ flow การส่งข้อมูลระหว่างหน้าเว็บกับระบบหลังบ้านชัดเจนขึ้น",
+            "link": "#"
+        },
+        {
+            "name": "Responsive Corporate Website",
+            "category": "Front-End Engineering",
+            "stack": "React, Next.js, CSS",
+            "summary": "พัฒนาเว็บไซต์องค์กรที่เน้นความเร็ว, SEO, และประสบการณ์ใช้งานบนมือถือ",
+            "impact": "ยกระดับภาพลักษณ์แบรนด์และทำให้เว็บไซต์พร้อมใช้งานบนหลายอุปกรณ์",
+            "link": "#"
+        }
+    ],
+    "education": [
+        {
+            "period": "จบการศึกษา 2563",
+            "school": "มหาวิทยาลัยพะเยา",
+            "degree": "วิศวกรรมศาสตรบัณฑิต",
+            "major": "วิศวกรรมคอมพิวเตอร์",
+            "faculty": "เทคโนโลยีสารสนเทศและการสื่อสาร (ICT)",
+            "gpa": "2.27"
+        },
+        {
+            "period": "จบการศึกษา 2556",
+            "school": "โรงเรียนสุวรรณคูหาพิทยา",
+            "degree": "มัธยมศึกษาตอนปลาย",
+            "major": "",
+            "faculty": "",
+            "gpa": "3.17"
+        }
+    ],
+    "certificates": [
+        {
+            "period": "มีนาคม 2563",
+            "issuer": "มหาวิทยาลัยพะเยา",
+            "title": "การฝึกอบรมการใช้โปรแกรม Microsoft Team ให้กับคณาจารย์สำหรับช่วง Covid"
+        }
+    ],
+    "languages": [
+        {
+            "name": "ไทย",
+            "speaking": "ดีเยี่ยม",
+            "reading": "ดีเยี่ยม",
+            "writing": "ดีเยี่ยม"
+        },
+        {
+            "name": "อังกฤษ",
+            "speaking": "พอใช้",
+            "reading": "ดี",
+            "writing": "ดี"
+        }
+    ],
+    "extras": {
+        "strengths": [
+            "Guitar",
+            "พิมพ์ดีดสัมผัสได้ทั้งภาษาไทยและอังกฤษ",
+            "Football / Basketball"
+        ],
+        "typing_speed": "ไทย 55 คำ/นาที, อังกฤษ 45 คำ/นาที",
+        "transport": "รถจักรยานยนต์, รถยนต์"
+    },
+    "socials": [
+        {
+            "label": "Email",
+            "value": "poominzakubgrn@gmail.com",
+            "url": "mailto:poominzakubgrn@gmail.com"
+        },
+        {
+            "label": "Phone",
+            "value": "095-3074741",
+            "url": "tel:0890000000"
+        },
+        {
+            "label": "Location",
+            "value": "Thailand",
+            "url": "#contact"
+        }
+    ],
+    "updated_at": "2026-04-03T11:03:10+00:00"
+}

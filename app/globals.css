@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink text-slate-100 antialiased;
+  background:
+    radial-gradient(circle at top left, rgba(255, 184, 77, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(97, 208, 255, 0.1), transparent 22%),
+    linear-gradient(145deg, #08111f, #0d1830 55%, #162749 100%);
+}
+
+::selection {
+  background: rgba(255, 184, 77, 0.35);
+  color: white;
+}
+
+.glass {
+  @apply border border-white/10 bg-white/[0.045] shadow-glow backdrop-blur-xl;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
