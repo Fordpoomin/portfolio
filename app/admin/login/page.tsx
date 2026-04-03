@@ -33,11 +33,11 @@ export default async function AdminLoginPage({
         <form action={loginAction} className="mt-8 space-y-5">
           <div>
             <label className="mb-2 block text-sm text-slate-300">Username</label>
-            <input
-              name="username"
-              defaultValue="admin"
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-amber-300/50"
-            />
+              <input
+                name="username"
+                defaultValue=""
+                className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-amber-300/50"
+              />
           </div>
           <div>
             <label className="mb-2 block text-sm text-slate-300">Password</label>
