@@ -2,17 +2,28 @@ import "server-only";
 
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { put } from "@vercel/blob";
 
 export async function saveUploadedProfileImage(file: File): Promise<string | null> {
   if (!file || file.size === 0) {
     return null;
   }
 
+  const extension = path.extname(file.name || "").toLowerCase() || ".jpg";
+  const safeExtension = [".jpg", ".jpeg", ".png", ".webp"].includes(extension) ? extension : ".jpg";
+
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const blob = await put(`profiles/profile-${Date.now()}${safeExtension}`, file, {
+      access: "public",
+      addRandomSuffix: false
+    });
+
+    return blob.url;
+  }
+
   const uploadsDir = path.join(process.cwd(), "public", "uploads");
   await mkdir(uploadsDir, { recursive: true });
 
-  const extension = path.extname(file.name || "").toLowerCase() || ".jpg";
-  const safeExtension = [".jpg", ".jpeg", ".png", ".webp"].includes(extension) ? extension : ".jpg";
   const fileName = `profile-${Date.now()}${safeExtension}`;
   const filePath = path.join(uploadsDir, fileName);
 

@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { writeBlobPortfolio } from "@/lib/blob-portfolio-store";
 import { prisma } from "@/lib/prisma";
 import { clearAdminSession, createAdminSession, validateAdminCredentials } from "@/lib/auth";
 import { saveUploadedProfileImage } from "@/lib/file-upload";
@@ -121,6 +122,11 @@ export async function savePortfolioAction(formData: FormData) {
 
   let saveTarget = "local";
 
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    await writeBlobPortfolio(localPayload);
+    saveTarget = "blob";
+  }
+
   try {
     await prisma.$transaction(async (tx) => {
       await tx.profile.upsert({
@@ -196,6 +202,9 @@ export async function savePortfolioAction(formData: FormData) {
     saveTarget = "mysql";
   } catch {
     await writeLocalPortfolio(localPayload);
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      saveTarget = "blob";
+    }
   }
 
   revalidatePath("/");
