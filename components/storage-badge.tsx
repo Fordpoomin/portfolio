@@ -5,8 +5,8 @@ const storageMeta: Record<
   { label: string; description: string; accentClass: string; dotClass: string }
 > = {
   mysql: {
-    label: "MySQL Active",
-    description: "ระบบกำลังอ่านและบันทึกผ่านฐานข้อมูล MySQL พร้อมเขียน local backup",
+    label: "Neon (Postgres) Active",
+    description: "ระบบกำลังอ่านและบันทึกผ่าน Neon (Postgres) Database โดยตรง (Production-ready)",
     accentClass: "border-cyan-300/20 bg-cyan-300/10 text-cyan-100",
     dotClass: "bg-cyan-300"
   },
