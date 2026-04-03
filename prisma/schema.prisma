@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -12,8 +12,8 @@ model Profile {
   fullName        String
   nickname        String
   headline        String
-  subheadline     String        @db.Text
-  summary         String        @db.Text
+  subheadline     String
+  summary         String
   email           String
   phone           String
   location        String
