@@ -11,8 +11,8 @@ session_save_path($sessionPath);
 session_start();
 
 const APP_NAME = 'Poom Portfolio';
-const ADMIN_USERNAME = 'admin';
-const ADMIN_PASSWORD = 'admin123';
+const ADMIN_USERNAME = '';
+const ADMIN_PASSWORD = '';
 const DATA_FILE = __DIR__ . '/../data/portfolio.json';
 
 $dbConfig = [
