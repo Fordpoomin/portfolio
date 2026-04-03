@@ -44,7 +44,7 @@ export default async function AdminLoginPage({
             <input
               name="password"
               type="password"
-              defaultValue="admin123"
+              defaultValue=""
               className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-amber-300/50"
             />
           </div>
