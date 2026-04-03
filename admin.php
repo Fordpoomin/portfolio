@@ -32,27 +32,36 @@ if ($requestMethod === 'POST' && isset($_POST['save_portfolio'])) {
     require_admin();
     $existing = repo()->getPortfolio();
     $payload = $existing;
+    try {
+        $payload['site'] = [
+            'title' => trim((string) ($_POST['site_title'] ?? '')),
+            'tagline' => trim((string) ($_POST['site_tagline'] ?? '')),
+            'email' => trim((string) ($_POST['site_email'] ?? '')),
+            'phone' => trim((string) ($_POST['site_phone'] ?? '')),
+            'location' => trim((string) ($_POST['site_location'] ?? '')),
+            'availability' => trim((string) ($_POST['site_availability'] ?? '')),
+            'resume_focus' => trim((string) ($_POST['site_resume_focus'] ?? '')),
+        ];
 
-    $payload['site'] = [
-        'title' => trim((string) ($_POST['site_title'] ?? '')),
-        'tagline' => trim((string) ($_POST['site_tagline'] ?? '')),
-        'email' => trim((string) ($_POST['site_email'] ?? '')),
-        'phone' => trim((string) ($_POST['site_phone'] ?? '')),
-        'location' => trim((string) ($_POST['site_location'] ?? '')),
-        'availability' => trim((string) ($_POST['site_availability'] ?? '')),
-        'resume_focus' => trim((string) ($_POST['site_resume_focus'] ?? '')),
-    ];
-
-    $payload['hero'] = [
-        'name' => trim((string) ($_POST['hero_name'] ?? '')),
-        'headline' => trim((string) ($_POST['hero_headline'] ?? '')),
-        'subheadline' => trim((string) ($_POST['hero_subheadline'] ?? '')),
-        'description' => trim((string) ($_POST['hero_description'] ?? '')),
-        'avatar' => trim((string) ($_POST['hero_avatar'] ?? '')),
-        'years_experience' => trim((string) ($_POST['hero_years_experience'] ?? '')),
-        'projects_count' => trim((string) ($_POST['hero_projects_count'] ?? '')),
-        'current_role' => trim((string) ($_POST['hero_current_role'] ?? '')),
-        'highlight_metrics' => normalize_lines((string) ($_POST['hero_highlights'] ?? '')),
+        $payload['hero'] = [
+            'name' => trim((string) ($_POST['hero_name'] ?? '')),
+            'headline' => trim((string) ($_POST['hero_headline'] ?? '')),
+            'subheadline' => trim((string) ($_POST['hero_subheadline'] ?? '')),
+            'description' => trim((string) ($_POST['hero_description'] ?? '')),
+            'avatar' => trim((string) ($_POST['hero_avatar'] ?? '')),
+            'years_experience' => trim((string) ($_POST['hero_years_experience'] ?? '')),
+            'projects_count' => trim((string) ($_POST['hero_projects_count'] ?? '')),
+            'current_role' => trim((string) ($_POST['hero_current_role'] ?? '')),
+            'highlight_metrics' => normalize_lines((string) ($_POST['hero_highlights'] ?? '')),
+        ];
+        // ... (rest of payload building)
+        repo()->savePortfolio($payload);
+    } catch (Throwable $e) {
+        error_log('Error in save_portfolio POST: ' . $e->getMessage());
+        flash('เกิดข้อผิดพลาดขณะบันทึก: ' . $e->getMessage(), 'danger');
+        header('Location: admin.php');
+        exit;
+    }
     ];
 
     $payload['about'] = [

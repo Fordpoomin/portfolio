@@ -22,13 +22,22 @@ final class PortfolioRepository
     public function savePortfolio(array $payload): void
     {
         $payload['updated_at'] = date(DATE_ATOM);
-
-        if (($this->config['driver'] ?? 'json') === 'mysql') {
-            $this->saveToMysql($payload);
+        try {
+            if (($this->config['driver'] ?? 'json') === 'mysql') {
+                $this->saveToMysql($payload);
+            }
+        } catch (\Throwable $e) {
+            error_log('Error saving to MySQL: ' . $e->getMessage());
         }
-
-        $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-        file_put_contents($this->dataFile, (string) $json);
+        try {
+            $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            if ($json === false) {
+                throw new \Exception('JSON encode error: ' . json_last_error_msg());
+            }
+            file_put_contents($this->dataFile, (string) $json);
+        } catch (\Throwable $e) {
+            error_log('Error saving to JSON file: ' . $e->getMessage());
+        }
     }
 
     private function getFromJson(): array
