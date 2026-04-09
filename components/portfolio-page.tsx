@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AnimateInView } from "@/components/animate-in-view";
+import { HeroDepthScene } from "@/components/hero-depth-scene";
 import { HoverCard } from "@/components/hover-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
@@ -13,13 +14,16 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
   } as React.CSSProperties;
 
   return (
-    <div className="relative overflow-hidden" style={themeStyle}>
+    <div className="portfolio-stage relative overflow-hidden" style={themeStyle}>
       <SiteHeader />
 
       {/* Add top padding to prevent content being hidden behind fixed navbar */}
       <main className="pt-24 md:pt-28">
         <section id="home" className="relative overflow-hidden py-20 lg:py-28 transition-all duration-500">
+          <HeroDepthScene />
           <div className="absolute inset-0 bg-hero-grid bg-[length:48px_48px] opacity-20 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+          <div className="absolute left-[8%] top-12 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18),transparent_70%)] blur-2xl" />
+          <div className="absolute bottom-12 right-[10%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,184,77,0.18),transparent_72%)] blur-3xl" />
           <div className="section-shell relative grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <AnimateInView>
               <div>
@@ -52,7 +56,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
                     { label: "Current Focus", value: profile.currentRole }
                   ].map((item) => (
                     <HoverCard key={item.label}>
-                      <div className="glass rounded-3xl p-5">
+                      <div className="glass depth-card rounded-3xl p-5">
                         <div className="font-[var(--font-heading)] text-2xl font-bold text-white">{item.value}</div>
                         <div className="mt-2 text-sm text-slate-400">{item.label}</div>
                       </div>
@@ -63,9 +67,10 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
             </AnimateInView>
 
             <AnimateInView delay={0.1}>
-              <div className="glass rounded-[2rem] p-6 lg:p-8 shadow-xl hover:shadow-2xl transition-all duration-500">
+              <div className="glass depth-card rounded-[2rem] p-6 shadow-xl transition-all duration-500 lg:p-8">
                 <div className="relative mb-5 h-56 overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/50 sm:h-72">
                   <Image src={profile.avatarPath} alt={profile.fullName} fill className="object-cover transition duration-700 hover:scale-[1.04]" priority />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(8,17,31,0.45)_100%)]" />
                 </div>
                 <span
                   className="inline-flex rounded-full px-3 py-2 text-xs font-medium uppercase tracking-[0.24em]"
@@ -112,7 +117,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
             </AnimateInView>
             <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
               <AnimateInView>
-                <div className="glass rounded-[2rem] p-6 lg:p-8">
+                <div className="glass depth-card rounded-[2rem] p-6 lg:p-8">
                 <div className="grid gap-4 sm:grid-cols-2">
                   {profile.personalDetails.map((item) => (
                     <HoverCard key={item.label}>
@@ -127,7 +132,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
               </AnimateInView>
 
               <AnimateInView delay={0.08}>
-                <div className="glass rounded-[2rem] p-6 lg:p-8">
+                <div className="glass depth-card rounded-[2rem] p-6 lg:p-8">
                 <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white">Core Skills</h3>
                 <div className="mt-6 space-y-6">
                   {profile.skillGroups.map((group) => (
@@ -164,7 +169,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
               {experiences.map((item, index) => (
                 <AnimateInView key={`${item.company}-${item.sortOrder}`} delay={index * 0.06}>
                   <HoverCard>
-                    <article className="glass rounded-[2rem] p-6 lg:p-8">
+                    <article className="glass depth-card rounded-[2rem] p-6 lg:p-8">
                       <div className="text-sm uppercase tracking-[0.24em] text-slate-400">{item.period}</div>
                       <h3 className="mt-3 font-[var(--font-heading)] text-2xl font-bold text-white">{item.position}</h3>
                       <p className="mt-2 text-slate-300">
@@ -196,7 +201,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
               {projects.map((project, index) => (
                 <AnimateInView key={`${project.name}-${project.sortOrder}`} delay={index * 0.08}>
                   <HoverCard>
-                    <article className="glass rounded-[2rem] p-6 transition duration-300 hover:border-amber-200/20 hover:bg-white/[0.06]">
+                    <article className="glass depth-card rounded-[2rem] p-6 transition duration-300 hover:border-amber-200/20 hover:bg-white/[0.06]">
                       <span className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: profile.primaryColor }}>
                         {project.category}
                       </span>
@@ -218,7 +223,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
         <section className="py-20">
           <div className="section-shell grid gap-6 lg:grid-cols-2">
             <AnimateInView>
-              <div className="glass rounded-[2rem] p-6 lg:p-8">
+              <div className="glass depth-card rounded-[2rem] p-6 lg:p-8">
               <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white">Education</h3>
               <div className="mt-6 space-y-5">
                 {educations.map((item) => (
@@ -239,7 +244,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
             </AnimateInView>
 
             <AnimateInView delay={0.08}>
-              <div className="glass rounded-[2rem] p-6 lg:p-8">
+              <div className="glass depth-card rounded-[2rem] p-6 lg:p-8">
               <h3 className="font-[var(--font-heading)] text-2xl font-bold text-white">Languages, strengths, and mobility</h3>
               <div className="mt-6 space-y-5">
                 {profile.languages.map((language) => (
@@ -273,7 +278,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
             {certificates.map((certificate, index) => (
               <AnimateInView key={`${certificate.title}-${certificate.sortOrder}`} delay={index * 0.06}>
                 <HoverCard>
-                  <div className="glass rounded-[2rem] p-5 transition duration-300 hover:border-white/20 hover:bg-white/[0.06]">
+                  <div className="glass depth-card rounded-[2rem] p-5 transition duration-300 hover:border-white/20 hover:bg-white/[0.06]">
                     <div className="text-sm text-slate-400">{certificate.period}</div>
                     <div className="mt-2 font-semibold text-white">{certificate.title}</div>
                     <div className="mt-2 text-sm text-slate-400">{certificate.issuer}</div>
@@ -287,7 +292,7 @@ export function PortfolioPage({ data }: { data: PortfolioData }) {
         <section id="contact" className="pb-20">
           <div className="section-shell">
             <AnimateInView>
-              <div className="glass flex flex-col gap-8 rounded-[2rem] p-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="glass depth-card flex flex-col gap-8 rounded-[2rem] p-8 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-[0.24em]" style={{ color: profile.primaryColor }}>Ready to work</span>
                   <h2 className="mt-3 max-w-3xl font-[var(--font-heading)] text-3xl font-extrabold text-white lg:text-4xl">

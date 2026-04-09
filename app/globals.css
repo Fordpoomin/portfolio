@@ -12,6 +12,7 @@ body {
     radial-gradient(circle at top left, rgba(255, 184, 77, 0.12), transparent 28%),
     radial-gradient(circle at top right, rgba(97, 208, 255, 0.1), transparent 22%),
     linear-gradient(145deg, #08111f, #0d1830 55%, #162749 100%);
+  perspective: 1400px;
 }
 
 ::selection {
@@ -21,8 +22,96 @@ body {
 
 .glass {
   @apply border border-white/10 bg-white/[0.045] shadow-glow backdrop-blur-xl;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 34px rgba(3, 8, 20, 0.32),
+    0 2px 12px rgba(99, 201, 217, 0.08);
 }
 
 .section-shell {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.portfolio-stage {
+  background:
+    radial-gradient(circle at 12% 16%, rgba(255, 184, 77, 0.1), transparent 18%),
+    radial-gradient(circle at 84% 12%, rgba(99, 201, 217, 0.14), transparent 18%),
+    radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.04), transparent 24%);
+}
+
+.depth-card {
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.depth-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(135deg, rgba(255, 184, 77, 0.06), transparent 35%, rgba(99, 201, 217, 0.05) 100%);
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(18px);
+  opacity: 0.9;
+  transform: translateZ(0);
+}
+
+.hero-orb--one {
+  top: 4rem;
+  right: 10%;
+  width: 15rem;
+  height: 15rem;
+  background:
+    radial-gradient(circle, rgba(255, 184, 77, 0.34), rgba(255, 184, 77, 0.08) 54%, transparent 76%);
+}
+
+.hero-orb--two {
+  bottom: 2.5rem;
+  left: 5%;
+  width: 19rem;
+  height: 19rem;
+  background:
+    radial-gradient(circle, rgba(99, 201, 217, 0.22), rgba(99, 201, 217, 0.06) 54%, transparent 78%);
+}
+
+.hero-panel {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.hero-panel--left {
+  top: 10rem;
+  left: -2rem;
+  width: 11rem;
+  height: 11rem;
+  transform: rotate(-18deg);
+  border-radius: 2.5rem;
+}
+
+.hero-panel--right {
+  right: 6%;
+  bottom: 5rem;
+  width: 13rem;
+  height: 8rem;
+  transform: rotate(17deg);
+  border-radius: 2rem;
+}
+
+.hero-grid-mask {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 78%);
+  opacity: 0.26;
 }
