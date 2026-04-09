@@ -46,7 +46,7 @@ export function HoverCard({
       }}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className={cn("relative [transform-style:preserve-3d]", className)}
+      className={cn("relative overflow-hidden [transform-style:preserve-3d]", className)}
     >
       <motion.div
         aria-hidden

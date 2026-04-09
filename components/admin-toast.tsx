@@ -4,22 +4,22 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const toastConfig = {
-  mysql: {
-    title: "Saved to MySQL",
-    description: "ข้อมูล portfolio ถูกบันทึกลงฐานข้อมูลและไฟล์ local เรียบร้อยแล้ว",
+  postgres: {
+    title: "Saved to Neon Postgres",
+    description: "Portfolio data was saved directly to Neon Postgres.",
     accent: "#63c9d9",
     icon: "success"
   },
-  blob: {
-    title: "Saved to Vercel Blob",
-    description: "ข้อมูล portfolio และไฟล์ที่เกี่ยวข้องถูกบันทึกลง cloud storage สำหรับ production แล้ว",
-    accent: "#a78bfa",
-    icon: "success"
-  },
   local: {
-    title: "Saved Locally",
-    description: "MySQL ยังไม่พร้อม ตอนนี้บันทึกลงไฟล์ local ให้เรียบร้อยแล้ว",
+    title: "Database Unavailable",
+    description: "Neon/Postgres could not be reached, so the save action did not complete.",
     accent: "#f5b942",
+    icon: "warning"
+  },
+  error: {
+    title: "Save Failed",
+    description: "The portfolio was not saved because Neon/Postgres returned an error.",
+    accent: "#fb7185",
     icon: "warning"
   }
 } as const;

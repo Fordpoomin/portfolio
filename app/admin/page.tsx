@@ -5,7 +5,7 @@ import { AdminToast } from "@/components/admin-toast";
 import { StorageBadge } from "@/components/storage-badge";
 import { isAdminAuthenticated } from "@/lib/auth";
 import { getPortfolioData } from "@/lib/portfolio";
-import { getStorageMode } from "@/lib/storage-mode";
+import { getStorageDebugInfo, getStorageMode } from "@/lib/storage-mode";
 
 export default async function AdminPage({
   searchParams
@@ -19,6 +19,7 @@ export default async function AdminPage({
   const params = await searchParams;
   const data = await getPortfolioData();
   const storageMode = await getStorageMode();
+  const storageDebug = await getStorageDebugInfo();
   const { profile } = data;
 
   return (
@@ -31,10 +32,22 @@ export default async function AdminPage({
           </span>
           <h1 className="mt-5 font-[var(--font-heading)] text-4xl font-extrabold text-white">Manage Content</h1>
           <p className="mt-4 text-slate-300">
-            ปรับข้อมูลหลักทุกส่วนของ portfolio จากหน้าเดียว ทั้งหน้า public และชุดข้อมูลในฐาน MySQL ผ่าน Prisma
+            Update portfolio content from one place for both the public site and the primary database source.
           </p>
           <div className="mt-6">
             <StorageBadge mode={storageMode} />
+          </div>
+          <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs leading-6 text-slate-300">
+            <div className="font-[var(--font-heading)] text-sm font-semibold text-white">Debug Status</div>
+            <div className="mt-2">
+              Source: {storageDebug.activeSource === "postgres" ? "Neon/Postgres" : "Unavailable / seed fallback"}
+            </div>
+            <div>DB Host: {storageDebug.dbHost ?? "-"}</div>
+            <div>DB Name: {storageDebug.dbName ?? "-"}</div>
+            <div>Profile Row: {storageDebug.profileRowId ?? "-"}</div>
+            {/* <div>Current Start Window: {storageDebug.startWindow ?? "-"}</div> */}
+            <div>Env Priority: {storageDebug.envPriority}</div>
+            {storageDebug.error ? <div className="mt-2 text-amber-200">DB Error: {storageDebug.error}</div> : null}
           </div>
           <div className="mt-8 space-y-3">
             <a

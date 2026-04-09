@@ -1,6 +1,4 @@
 import { Prisma } from "@prisma/client";
-import { readBlobPortfolio } from "@/lib/blob-portfolio-store";
-import { readLocalPortfolio } from "@/lib/local-portfolio-store";
 import { prisma } from "@/lib/prisma";
 import { seedPortfolio } from "@/lib/seed-data";
 import type { PortfolioData } from "@/lib/types";
@@ -26,7 +24,7 @@ export async function getPortfolioData(): Promise<PortfolioData> {
     });
 
     if (!profile) {
-      return (await readBlobPortfolio()) ?? (await readLocalPortfolio()) ?? seedPortfolio;
+      return seedPortfolio;
     }
 
     return {
@@ -68,6 +66,6 @@ export async function getPortfolioData(): Promise<PortfolioData> {
       certificates: profile.certificates
     };
   } catch {
-    return (await readBlobPortfolio()) ?? (await readLocalPortfolio()) ?? seedPortfolio;
+    return seedPortfolio;
   }
 }

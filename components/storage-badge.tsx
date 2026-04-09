@@ -4,21 +4,15 @@ const storageMeta: Record<
   StorageMode,
   { label: string; description: string; accentClass: string; dotClass: string }
 > = {
-  mysql: {
+  postgres: {
     label: "Neon (Postgres) Active",
-    description: "ระบบกำลังอ่านและบันทึกผ่าน Neon (Postgres) Database โดยตรง (Production-ready)",
+    description: "The app is currently reading and writing directly to your Neon Postgres database.",
     accentClass: "border-cyan-300/20 bg-cyan-300/10 text-cyan-100",
     dotClass: "bg-cyan-300"
   },
-  blob: {
-    label: "Vercel Blob Active",
-    description: "ระบบกำลังอ่านและบันทึกผ่าน Vercel Blob เหมาะสำหรับ production บน Vercel โดยตรง",
-    accentClass: "border-violet-300/20 bg-violet-300/10 text-violet-100",
-    dotClass: "bg-violet-300"
-  },
   local: {
-    label: "Local File Mode",
-    description: "MySQL ยังไม่พร้อม ตอนนี้อ่านและบันทึกจากไฟล์ local ในโปรเจกต์",
+    label: "Neon Unavailable",
+    description: "The app could not reach Neon/Postgres. Saving is disabled until the database connection works again.",
     accentClass: "border-amber-300/20 bg-amber-300/10 text-amber-100",
     dotClass: "bg-amber-300"
   }

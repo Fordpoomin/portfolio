@@ -2,12 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { writeBlobPortfolio } from "@/lib/blob-portfolio-store";
 import { prisma } from "@/lib/prisma";
 import { clearAdminSession, createAdminSession, validateAdminCredentials } from "@/lib/auth";
 import { saveUploadedProfileImage } from "@/lib/file-upload";
-import { writeLocalPortfolio } from "@/lib/local-portfolio-store";
-import type { CertificateItem, EducationItem, ExperienceItem, PortfolioData, ProjectItem } from "@/lib/types";
+import type { CertificateItem, EducationItem, ExperienceItem, ProjectItem } from "@/lib/types";
 import { linesToArray, safeJsonParse } from "@/lib/utils";
 
 export async function loginAction(formData: FormData) {
@@ -112,20 +110,7 @@ export async function savePortfolioAction(formData: FormData) {
       }))
     : [];
 
-  const localPayload: PortfolioData = {
-    profile: profileData,
-    experiences: normalizedExperiences,
-    projects: normalizedProjects,
-    educations: normalizedEducations,
-    certificates: normalizedCertificates
-  };
-
-  let saveTarget = "local";
-
-  if (process.env.BLOB_READ_WRITE_TOKEN) {
-    await writeBlobPortfolio(localPayload);
-    saveTarget = "blob";
-  }
+  let saveTarget = "error";
 
   try {
     await prisma.$transaction(async (tx) => {
@@ -196,18 +181,19 @@ export async function savePortfolioAction(formData: FormData) {
           }))
         });
       }
+    }, {
+      maxWait: 10000,
+      timeout: 20000
     });
 
-    await writeLocalPortfolio(localPayload);
-    saveTarget = "mysql";
-  } catch {
-    await writeLocalPortfolio(localPayload);
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      saveTarget = "blob";
-    }
+    saveTarget = "postgres";
+  } catch (error) {
+    console.error("savePortfolioAction failed", error);
+    redirect("/admin?status=error");
   }
 
   revalidatePath("/");
   revalidatePath("/admin");
   redirect(`/admin?status=${saveTarget}`);
 }
+
