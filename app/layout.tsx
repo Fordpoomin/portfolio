@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Thai, Sora } from "next/font/google";
+import { Kanit, Noto_Sans_Thai } from "next/font/google";
 import "@/app/globals.css";
 import { ScrollTopLink } from "@/components/scroll-top-link";
 
-const heading = Sora({
-  subsets: ["latin"],
+const heading = Kanit({
+  subsets: ["thai", "latin"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-heading"
 });
 
-const body = IBM_Plex_Sans_Thai({
+const body = Noto_Sans_Thai({
   subsets: ["thai", "latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-body"

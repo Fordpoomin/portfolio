@@ -21,6 +21,10 @@ export async function saveUploadedProfileImage(file: File): Promise<string | nul
     return blob.url;
   }
 
+  if (process.env.VERCEL === "1" || process.env.NODE_ENV === "production") {
+    throw new Error("Profile image upload requires BLOB_READ_WRITE_TOKEN in production.");
+  }
+
   const uploadsDir = path.join(process.cwd(), "public", "uploads");
   await mkdir(uploadsDir, { recursive: true });
 
